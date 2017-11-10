@@ -42,8 +42,6 @@ public class eagle {
             yPosition += 0.02;
         }
         drawEagle();
-
-
     }
 
 
@@ -53,11 +51,10 @@ public class eagle {
     }
 
     public void moveDown(){
-        if(yPosition > 0.1 ){
+        if(yPosition > 0.0 ){
             yPosition -= 0.01;
         }
         drawEagle();
-
     }
 
     public void resetEagle(){
@@ -75,9 +72,17 @@ public class eagle {
         return (yPosition > enemyY - a &&  yPosition < enemyY + b);
     }
 
+    public boolean collisionG(){
+        double g = .13;
+        return (yPosition < g);
+    }
+
     public boolean collision(double enemyX, double enemyY) {
         boolean collided = false;
         if (collisionX(enemyX) == true && collisionY(enemyY) == true){
+            collided = true;
+        }
+        if(collisionG() == true){
             collided = true;
         }
         return collided;

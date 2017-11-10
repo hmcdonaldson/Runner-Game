@@ -24,6 +24,8 @@ public class Runner {
         eagle eagle = new eagle(0.5, 0.5, true);
         double random = (double) Math.random();
         enemy enemy = new enemy(1, random);
+        background background1 = new background(.5, .5);
+        background background2 = new background(1.50, .5);
         Font font = new Font("Verdana", Font.BOLD, 70);
         StdDraw.setFont(font);
         StdDraw.text(0.5, 0.5, "Bridgewater Eagle Run");
@@ -34,14 +36,16 @@ public class Runner {
         StdDraw.enableDoubleBuffering();
 
 
-
         while (true) {
             boolean collided = false;
             if (getSpaceBarPress()) {
                 i = 0;
+                int p = 15;
                 while (!collided) {
                     collided = eagle.collision(enemy.getxPosition(), enemy.getyPosition());
 
+                    background1.moveLeft();
+                    background2.moveLeft();
                     if (getSpaceBarPress()) {
                         eagle.moveUp();
 
@@ -56,8 +60,13 @@ public class Runner {
                     StdDraw.text(.5, .9, j);
                     enemy.moveLeft();
                     StdDraw.show();
-                    StdDraw.clear(StdDraw.GREEN );
-                    pause(20);
+                    StdDraw.clear(StdDraw.WHITE);
+                    if (i < 15000) {
+                        if (i % 1000 == 0) {
+                            p = p - 1;
+                        }
+                    }
+                    pause(p);
 
 
 
