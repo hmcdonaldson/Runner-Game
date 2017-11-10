@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Runner Game:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Runner_Game_jar</output-path>
+    <root id="archive" name="Runner Game.jar">
+      <element id="module-output" name="Runner Game" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/stdlib-package.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
