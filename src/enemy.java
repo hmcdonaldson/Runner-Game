@@ -39,9 +39,16 @@ public class enemy {
         }
         else {
             xPosition = 1;
-            yPosition = Math.random();
+            yPosition = randomNum();
         }
         drawEnemy();
+    }
+
+    public static double randomNum(){
+        double max = .9;
+        double min = .2;
+       double a = Math.random()*(max - min) + min;
+        return a;
     }
 
 }

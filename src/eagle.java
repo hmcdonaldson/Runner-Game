@@ -38,8 +38,8 @@ public class eagle {
     }
 
     public void moveUp(){
-        if(yPosition < 0.9 ){
-            yPosition += 0.02;
+        if(yPosition < 0.94 ){
+            yPosition += 0.01;
         }
         drawEagle();
     }
@@ -77,12 +77,23 @@ public class eagle {
         return (yPosition < g);
     }
 
-    public boolean collision(double enemyX, double enemyY) {
+    public boolean collisionC(){
+        double c = .94;
+        return (yPosition > c);
+    }
+
+    public boolean collision(double enemyX, double enemyY, double enemy2X, double enemy2Y) {
         boolean collided = false;
         if (collisionX(enemyX) == true && collisionY(enemyY) == true){
             collided = true;
         }
+        if(collisionX(enemy2X) == true && collisionY(enemy2Y) == true){
+            collided = true;
+        }
         if(collisionG() == true){
+            collided = true;
+        }
+        if(collisionC() == true){
             collided = true;
         }
         return collided;
